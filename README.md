@@ -1,2 +1,3 @@
-# collection
-Data collection for PHP 7
+# cdtweb/collections
+
+Collection libraries for PHP 7.1+

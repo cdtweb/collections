@@ -1,6 +1,6 @@
 {
     "name": "cdtweb/collections",
-    "description": "Collections for PHP 7",
+    "description": "Collections for PHP 7.1+",
     "version": "0.0.1",
     "license": "MIT",
     "authors": [

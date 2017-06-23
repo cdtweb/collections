@@ -1,0 +1,34 @@
+{
+    "name": "cdtweb/collections",
+    "description": "Collections for PHP 7",
+    "version": "0.0.1",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Clint Tyler",
+            "email": "ctyler@cdtwebsolutions.com"
+        }
+    ],
+    "keywords": ["collection", "php7"],
+    "homepage": "https://github.com/cdtweb/collection",
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.*",
+        "phpunit/phpunit": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cdtweb\\Collection\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cdtweb\\Collection\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    }
+}

@@ -162,7 +162,7 @@ class Collection implements CollectionInterface, Countable, ArrayAccess, Iterato
      */
     public function has($key): bool
     {
-        return isset($this->items[$key]);
+        return isset($this->items[$key]) || array_key_exists($key, $this->items);
     }
 
     /**

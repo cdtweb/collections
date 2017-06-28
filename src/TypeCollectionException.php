@@ -2,7 +2,7 @@
 
 namespace Cdtweb\Collection;
 
-class ImmutableCollectionException extends CollectionException
+class TypeCollectionException extends CollectionException
 {
 
 }

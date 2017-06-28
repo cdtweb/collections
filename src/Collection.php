@@ -13,7 +13,7 @@ use JsonSerializable;
  *
  * @package Cdtweb\Collection
  */
-class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializable, JsonSerializable
+class Collection implements CollectionInterface, Countable, ArrayAccess, IteratorAggregate, Serializable, JsonSerializable
 {
     /**
      * Array of items.
@@ -59,7 +59,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     // Collection Methods
 
     /**
-     * Make a collection from one or more arrays.
+     * Make collection from one or more arrays.
      *
      * @param array[] $arrays
      * @return Collection
@@ -74,26 +74,23 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Add an item to the collection.
+     * Add item to collection.
      *
-     * @param string $key
+     * @param string|integer $key
      * @param mixed $value
+     * @return void
      */
-    public function set($key, $value)
+    public function set($key, $value): void
     {
         $this->items[$key] = $value;
     }
 
     /**
-     * Get an item from the collection. Returns $default if item cannot be found.
+     * Get item(s) from collection. Return $default if item not found.
      *
-     * Passing an array of item keys for the value of $key will result in multiple
-     * items being returned. Keys that are missing from the collection will be
-     * returned with a value of $default.
-     *
-     * @param mixed $key
+     * @param string|integer|array $key
      * @param mixed $default
-     * @return mixed Will return $default if cannot find item
+     * @return mixed
      */
     public function get($key, $default = null)
     {
@@ -112,9 +109,9 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Pluck an item from the collection. Returns $default if item cannot be found.
+     * Pluck an item from the collection. Return $default if item not found.
      *
-     * @param string $key
+     * @param string|integer $key
      * @param mixed $default
      * @return mixed
      */
@@ -128,7 +125,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Gets all of the items in the collection as an array.
+     * Alias for toArray()
      *
      * @return array
      */
@@ -138,7 +135,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Gets keys for all of the items in the collection.
+     * Get item keys as array.
      *
      * @return array
      */
@@ -148,7 +145,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Gets values for all of the items in the collection.
+     * Get item values as array.
      *
      * @return array
      */
@@ -158,9 +155,9 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Checks for existence of an item in the collection.
+     * Check if collection has item.
      *
-     * @param string $key
+     * @param string|integer $key
      * @return boolean
      */
     public function has($key): bool
@@ -169,25 +166,28 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Deletes an item from the collection.
+     * Delete item from collection.
      *
-     * @param string $key
+     * @param string|integer $key
+     * @return void
      */
-    public function delete($key)
+    public function delete($key): void
     {
         unset($this->items[$key]);
     }
 
     /**
-     * Delete all items in collection.
+     * Empty collection.
+     *
+     * @return void
      */
-    public function destroy()
+    public function destroy(): void
     {
         $this->items = [];
     }
 
     /**
-     * Get collection as an array.
+     * Get collection as array.
      *
      * @return array
      */
@@ -197,7 +197,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     }
 
     /**
-     * Get collection as JSON.
+     * Get collection JSON string.
      *
      * @return string
      */

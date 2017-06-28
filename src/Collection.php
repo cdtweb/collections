@@ -61,6 +61,7 @@ class Collection implements Countable, ArrayAccess, IteratorAggregate, Serializa
     /**
      * Make a collection from one or more arrays.
      *
+     * @param array[] $arrays
      * @return Collection
      */
     public static function make(array ...$arrays): Collection

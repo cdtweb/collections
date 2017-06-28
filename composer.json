@@ -10,7 +10,7 @@
         }
     ],
     "keywords": ["collection", "php7"],
-    "homepage": "https://github.com/cdtweb/collection",
+    "homepage": "https://github.com/cdtweb/collections",
     "require": {
         "php": ">=7.1"
     },

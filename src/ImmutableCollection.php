@@ -9,6 +9,8 @@ namespace Cdtweb\Collection;
  */
 class ImmutableCollection extends Collection
 {
+    use MakeCollectionTrait;
+
     ///////////////////////////////////
     // Magic Methods
 
@@ -24,21 +26,6 @@ class ImmutableCollection extends Collection
 
     ///////////////////////////////////
     // Collection Methods
-
-    /**
-     * Make collection from one or more arrays.
-     *
-     * @param array[] $arrays
-     * @return Collection
-     */
-    public static function make(array ...$arrays): Collection
-    {
-        $items = [];
-        foreach ($arrays as $arr) {
-            $items += $arr;
-        }
-        return new self($items);
-    }
 
     /**
      * Add item to collection.

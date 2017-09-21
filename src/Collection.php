@@ -15,6 +15,8 @@ use JsonSerializable;
  */
 class Collection implements CollectionInterface, Countable, ArrayAccess, IteratorAggregate, Serializable, JsonSerializable
 {
+    use MakeCollectionTrait;
+
     /**
      * Array of items.
      *
@@ -57,21 +59,6 @@ class Collection implements CollectionInterface, Countable, ArrayAccess, Iterato
 
     ///////////////////////////////////
     // Collection Methods
-
-    /**
-     * Make collection from one or more arrays.
-     *
-     * @param array[] $arrays
-     * @return Collection
-     */
-    public static function make(array ...$arrays): Collection
-    {
-        $items = [];
-        foreach ($arrays as $arr) {
-            $items += $arr;
-        }
-        return new self($items);
-    }
 
     /**
      * Add item to collection.

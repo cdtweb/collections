@@ -4,6 +4,12 @@
 
 Collection libraries for PHP 7.1+
 
+# Install
+
+```
+composer require cdtweb/collections
+```
+
 ## `\Cdtweb\Collection\Collection`
 
 @todo
